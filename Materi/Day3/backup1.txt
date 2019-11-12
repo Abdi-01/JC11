@@ -1,0 +1,34 @@
+<script>
+    var proteksi = true
+    var proteksiMenu = true
+    while(proteksi){
+        var masukan = prompt('Masukkan nama : ')
+        if(masukan){
+            alert('Nama anda : '+ masukan)
+            while(proteksiMenu){
+                var belanja = prompt('Pilih barang berikut : \n 1. Sepatu Rp. 35.000\n 2. Bola Rp. 20.000\n 3. Baju Rp. 15.000')
+                if(belanja==1){
+                    var sepatu = prompt(masukan + ' Membeli Sepatu')
+                    proteksiMenu=false
+                    //proteksi = false
+                }
+                else if(belanja == 2){
+                    alert(masukan + ' Membeli Bola')
+                    proteksiMenu=false
+                    //proteksi = false
+                }
+                else if(belanja == 3){
+                    alert(masukan + ' Membeli Baju')
+                    proteksiMenu=false
+                    //proteksi = false
+                }
+                else{
+                    alert(masukan + ' Tidak belanja')
+                }
+            }
+           //proteksi = false
+        }else{
+            alert('Masukkan nama anda')
+        }
+    }
+</script>

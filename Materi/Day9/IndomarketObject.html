@@ -1,0 +1,211 @@
+<script>
+    class defaultMenu {
+        constructor(produk, harga) {
+            this.produk = produk,
+                this.harga = harga
+        }
+    }
+    class defaultCart {
+        constructor(produk, harga, quantity) {
+            this.produk = produk,
+                this.harga = harga,
+                this.quantity = quantity
+        }
+    }
+
+    class defaultUser {
+        constructor(username, passw, role) {
+            this.username = username,
+                this.passw = passw,
+                this.role = role
+        }
+    }
+
+    var menu = [
+        {
+            produk: 'Buah Semangka',
+            harga: 15000
+        },
+        {
+            produk: 'Buah Durian',
+            harga: 25000
+        }
+    ]
+
+    var CartUser = []
+    function tambahCart(produk, harga, quantity) {
+        var upCart = new defaultCart(produk, harga, quantity)
+        return CartUser.push(upCart)//push : menambah data baru pada array menu
+    }
+    var total = 0
+    function printCart() {
+        var hasil = ''
+        for (i = 0; i < CartUser.length; i++) {
+            hasil += (i + 1) + '. ' + CartUser[i].produk + ' Rp.' + CartUser[i].harga.toLocaleString()+ ' ' + CartUser[i].quantity + 'Kg ==> Rp.'+(CartUser[i].harga*CartUser[i].quantity).toLocaleString()+'\n'
+            //total += CartUser[i].harga*CartUser[i].quantity
+        }
+        return hasil
+    }
+
+    var userID = [
+        {
+            username: 'Abdi',
+            passw: '12345',
+            role: 'user'
+        },
+        {
+            username: 'admin',
+            passw: 'admin',
+            role: 'admin'
+        }
+    ]
+
+    //var userID = ['Al', 'Budi', 'Ibnu']
+    function dataUSER(user, pass) {
+        //console.log(user)
+        for (i = 0; i < userID.length; i++) {
+            if (userID[i].username === user && userID[i].passw === pass) {
+                return userID[i].role
+            }
+        }
+        return false
+    }
+
+    function tambahUser(user, pass, role) {
+        var userBaru = new defaultUser(user, pass, role)
+        return userID.push(userBaru)//push : menambah data baru pada array menu
+    }
+
+    function printMenu() {
+        var hasil = ''
+        for (i = 0; i < menu.length; i++) {
+            hasil += (i + 1) + '. ' + menu[i].produk + ' ' + menu[i].harga.toLocaleString() + '\n'
+        }
+        return hasil
+    }
+
+    function tambahProduk(produk, harga) {
+        var produkBaru = new defaultMenu(produk, harga)
+        return menu.push(produkBaru)//push : menambah data baru pada array menu
+    }
+
+    function checkout(){
+        var output = 0
+        for(i=0;i<CartUser.length;i++){
+            output+= CartUser[i].harga*CartUser[i].quantity 
+        }
+        return output.toLocaleString()
+    }
+
+    function menuHarga(menu, harga) {
+        var output = ''
+        for (var i = 0; i < menu.length && i < harga.length; i++) {
+            output += (i + 1) + '. ' + menu[i] + ' ' + harga[i] + '\n'
+        }
+        return output
+    }
+
+    var proteksiPortal = true
+    while (proteksiPortal) {
+        var portal = prompt('Selamat Datang di INDOMARKET\n1. Login\n2. Registrasi')
+        if (portal == 1) {
+            var proteksiBelanja = true
+            while (proteksiBelanja) {
+                var login = prompt('Silahkan Login !\nMasukkan Username Anda : ')
+                var password = prompt('Silahkan Login !\nMasukkan Password Anda : ')
+                if (dataUSER(login, password) === 'admin') {
+                    //admin
+                    var proteksiLogin = true
+                    while (proteksiLogin) {
+                        var pilihan = prompt('1. Lihat Menu \n2. Tambah Produk \n3. Hapus Produk \n4. Edit Produk \n5. Selesai')
+                        if (pilihan == 1) {
+                            alert(printMenu())
+                        }
+                        else if (pilihan == 2) {
+                            var namaProduk = prompt('Masukkan Nama Produk Baru : ')
+                            var hargaProduk = parseInt(prompt('Masukkan Harga Produk'))
+                            tambahProduk(namaProduk, hargaProduk)
+                            alert('Produk baru telah ditambahkan')
+                            alert(printMenu())
+                        }
+                        else if (pilihan == 3) {
+                            var hapusProduk = parseInt(prompt(printMenu() + '\n' + 'Silahkan pilih menu yang dihapus : '))
+                            menu.splice(hapusProduk - 1, 1)//splice (lokasi index, jumlah yang dihapus)
+                            alert('Produk baru telah dihapus')
+                        }
+                        else if (pilihan == 4) {
+                            var editProduk = parseInt(prompt(printMenu() + '\n' + 'Silahkan pilih menu yang diedit : '))
+                            var namaBaru = prompt('Edit produk sebelumnya :' + menu[editProduk - 1].produk)
+                            var hargaBaru = parseInt(prompt('Edit harga produk sebelumnya : ' + menu[editProduk - 1].harga))
+                            var notifBaru = prompt('Apakah anda yakin mengubah ' + menu[editProduk - 1].produk + ' ' + menu[editProduk - 1].harga + ' dengan ' + namaBaru + ' ' + hargaBaru + '\n1. Ya\n2. Tidak')
+                            if (notifBaru == 1) {
+                                menu[editProduk - 1].produk = namaBaru
+                                menu[editProduk - 1].harga = hargaBaru
+                                alert('Berhasil dirubah')
+                                alert(printMenu())
+                            } else {
+                                alert('Batal Edit')
+                                alert(printMenu())
+                            }
+
+                            alert(printMenu())
+                        }
+                        else if (pilihan == 5) {
+                            alert('Terima kasih telah berkunjung ke INDOMARKET')
+                            proteksiLogin = false
+                            proteksiBelanja = false
+                        }
+                    }
+                }
+                else if (dataUSER(login, password) === 'user') {
+                    var menuBelanja = true
+                    //var total = 0
+                    while (menuBelanja) {
+                        var menuUser = prompt('1. Belanja\n2. Lihat Cart\n3. Update Cart \n4. Delete Isi Cart \n5. Checkout')
+                        if (menuUser == 1) {
+                            var pilihBelanja = parseInt(prompt('Silahkan memilih barang : \n' + printMenu()))
+                            var quantity = parseInt(prompt('Beli ' + menu[pilihBelanja - 1].produk + ' berapa kg ?'))
+                            tambahCart(menu[pilihBelanja - 1].produk, menu[pilihBelanja - 1].harga, quantity)
+                            //total += (CartUser[pilihBelanja - 1].harga * quantity)
+                        }
+                        else if(menuUser == 2){
+                            alert(printCart())
+                        }
+                        else if(menuUser==3){
+                            var editProduk = parseInt(prompt(printMenu() + '\n' + 'Silahkan pilih produk yang diedit : '))
+                            var qtyBaru = parseInt(prompt('Edit produk  yang diquantity :' + CartUser[editProduk - 1].produk + ' '+ CartUser[editProduk - 1].quantity))
+                            CartUser[editProduk - 1].quantity = qtyBaru
+                            alert(printCart())
+                        }
+                        else if(menuUser==4){
+                            var hapusProduk = parseInt(prompt(printCart() + '\n' + 'Silahkan pilih produk yang dihapus : '))
+                            CartUser.splice(hapusProduk - 1, 1)//splice (lokasi index, jumlah yang dihapus)
+                            alert('Produk telah dihapus')
+                        }
+                        else if(menuUser == 5){
+                            alert (printCart() + 'Total belanja anda adalah Rp. '+ checkout())
+                            //CartUser = []
+                        }
+                    }
+                }
+                else {
+                    alert('Maaf anda belum terdaftar\nSilahkan melakukan registrasi')
+                    proteksiBelanja = false
+                }
+            }
+        }
+        else if (portal == 2) {
+            var proteksiRegis = true
+            while (proteksiRegis) {
+                var regisUser = prompt('Masukkan Username Baru Anda')
+                var regisPass = prompt('Masukkan Password Baru Anda')
+                var regisRole = prompt('Masukkan Role Baru Anda')
+                tambahUser(regisUser, regisPass, regisRole)
+                alert('Terima Kasih, Anda Telah Terdaftar di INDOMARKET')
+                proteksiRegis = false
+            }
+        }
+    }
+
+
+</script>

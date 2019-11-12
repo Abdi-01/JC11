@@ -1,0 +1,14 @@
+<script>
+    var listBuah = ['Durian', 'Apel', 'Kurma', 'Semangka']
+    var listHarga=[50000,15000,30000,20000]
+    var belanja = parseInt(prompt('MENU BELANJA \n'+menuHarga(listBuah,listHarga)+'5. Show Cart\n6. Menu Utama'))
+                
+    function menuHarga(menu, harga){
+        var output=''
+        for(var i = 0; i < menu.length && i < harga.length ; i++){
+            output+=(i+1)+'. '+menu[i]+' Rp. '+ harga[i].toLocaleString() + '\n'
+        }
+        return output
+    }
+
+</script>

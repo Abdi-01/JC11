@@ -1,0 +1,46 @@
+<script>
+    var proteksi = true
+    while(proteksi){
+        var proteksiMenu = true
+        var masukan = prompt('Masukkan nama : ')
+        if(masukan){
+            alert('Nama anda : '+ masukan)
+            while(proteksiMenu){
+                var belanja = prompt('Pilih barang berikut : \n 1. Sepatu Rp. 35.000\n 2. Bola Rp. 20.000\n 3. Baju Rp. 15.000')
+                var proteksiHrf = true
+                if(belanja==1){
+                    while(proteksiHrf){
+                        var sepatu = prompt(masukan + ' Membeli Sepatu dengan jumlah : ')
+                        if(isNaN(sepatu)){
+                            alert('Input salah')
+                        }
+                        else{
+                            alert('Total belanja anda : Rp.' + sepatu*35000 + '\nTerima kasih sudah berbelanja')
+                            proteksiMenu=false
+                            proteksi = false
+                            proteksiHrf = false
+                        }
+                    }
+                }
+                else if(belanja == 2){
+                    var bola = prompt(masukan + ' Membeli Bola dengan jumlah : ')
+                    alert('Total belanja anda : Rp.' + bola*20000 + '\nTerima kasih sudah berbelanja')
+                    proteksiMenu=false
+                    proteksi = false
+                }
+                else if(belanja == 3){
+                    var baju = prompt(masukan + ' Membeli Baju dengan jumlah : ')
+                    alert('Total belanja anda : Rp.' + baju*15000 + '\nTerima kasih sudah berbelanja')
+                    proteksiMenu=false
+                    proteksi = false
+                }
+                else{
+                    alert(masukan + ' Tidak belanja')
+                }
+            }
+           //proteksi = false
+        }else{
+            alert('Masukkan nama anda')
+        }
+    }
+</script>

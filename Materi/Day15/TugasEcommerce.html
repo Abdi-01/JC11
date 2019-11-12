@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        table,
+        th,
+        td,
+        tr {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+    <title>Ecommerce</title>
+</head>
+
+<body>
+    <center>
+        <table>
+            <thead>
+                <tr>
+                    <td>No</td>
+                    <td>Nama</td>
+                    <td>Barang</td>
+                    <td>Harga</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody id="tmenu">
+
+            </tbody>
+        </table><br>
+        <table>
+            <thead>
+                <tr>
+                    <td>No</td>
+                    <td>Nama</td>
+                    <td>Barang</td>
+                    <td>Harga</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody id="tcart">
+
+            </tbody>
+        </table><br>
+        <input type="button" value="Checkout" onclick="checkout()"><br>
+        <h3 id="total">
+
+        </h3>
+    </center>
+    <script>
+        class product {
+            constructor(nama, barang, harga) {
+                this.nama = nama,
+                    this.barang = barang,
+                    this.harga = harga
+            }
+        }
+
+        var imageA = 'https://d2pa5gi5n2e1an.cloudfront.net/global/images/product/mobilephones/Apple_iPhone_11_Pro/Apple_iPhone_11_Pro_L_1.jpg'
+        var imageB = 'https://image-us.samsung.com/SamsungUS/mobile/phones/06102019-new/First_s10_5G_Lockup1_Black_gallery.jpg?$product-details-jpg$'
+        var imageC = 'https://images-na.ssl-images-amazon.com/images/I/61jJeZBliWL._SX466_.jpg'
+        var imageD = 'https://vernansenpai.com/wp-content/uploads/2018/10/brtbrt.png'
+
+        var listmenu = [new product('Iphone 11', imageA, 15000), new product('Samsung S10', imageB, 10000), new product('Huawei P30', imageC, 8000), new product('Asus ROG', imageD, 12000)]
+
+        function printMenu() {
+            var output = ''
+            for (i = 0; i < listmenu.length; i++) {
+                output += `<tr>
+                    <td>${i + 1}</td>
+                    <td>${listmenu[i].nama}</td>
+                    <td><img src="${listmenu[i].barang}" alt="barang" style="width:100px"></td>
+                    <td>${listmenu[i].harga}</td>
+                    <td><input type="button" value="Add To Cart" onclick="addToCart(${i})"></td>
+                </tr>`
+            }
+            document.getElementById('tmenu').innerHTML = output
+        }
+
+        var cart = []
+
+        function printCart(){
+            var hasil = ''
+            for (i = 0; i < cart.length; i++) {
+                hasil += `<tr>
+                    <td>${i + 1}</td>
+                    <td>${cart[i].nama}</td>
+                    <td><img src="${cart[i].barang}" alt="barang" style="width:100px"></td>
+                    <td>${cart[i].harga}</td>
+                    <td><input type="button" value="Delete Cart" onclick="deleteCart(${i})"></td>
+                </tr>`
+            }
+            document.getElementById('tcart').innerHTML = hasil
+        }
+
+        function addToCart(num) {
+            cart.push(listmenu[num])
+            printCart()
+        }
+        
+        function deleteCart(num) {
+            cart.splice(num, 1)
+            printCart()
+        }
+
+        function checkout(){
+            var total = 0
+            for(i=0;i<cart.length;i++){
+                total+=cart[i].harga
+            }
+            document.getElementById('total').innerHTML = "Jumlah belanja anda adalah = "+total+"\nTerima Kasih Sudah Berbelanja"
+            var total = 0
+            cart= []
+            printCart()
+        }
+
+        printMenu()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,183 @@
+<script>
+    var Master = true
+    while(Master){
+        var proteksiBelanja = true
+        var proteksiBelajar = true
+        var proteksiMenu = true
+        var nama = prompt('Masukkan nama anda : ')
+        if(nama){
+            while(proteksiMenu){
+                var mainMenu = prompt('Selamat datang : '+ nama + '\n' + 'Pilih menu berikut : \n 1. Menu Belanja \n 2. Menu Belajar')
+                if(mainMenu==1){
+                while(proteksiBelanja){
+                    var menuBelanja = prompt('MENU BELANJA \n Pilih barang berikut : \n 1. Sepatu Rp. 35.000\n 2. Bola Rp. 20.000\n 3. Baju Rp. 15.000')
+                    var proteksiHrf = true
+                    if(menuBelanja==1){
+                        while(proteksiHrf){
+                            var sepatu = prompt(nama + ' Membeli Sepatu dengan jumlah : ')
+                            if(isNaN(sepatu)){
+                                alert('Input anda SALAH')
+                            }
+                            else{
+                                var selesai = prompt('Total belanja anda : Rp. ' + sepatu*35000 + '\n'+'Terima Kasih Sudah Berbelanja \n Ket: 1.Belanja lagi/2.Menu Utama/3.Keluar')
+                                if(selesai==1){
+                                    proteksiMenu = false
+                                    proteksiHrf = false
+                                }
+                                else if(selesai==2){
+                                    proteksiBelanja = false
+                                    proteksiHrf = false
+                                }
+                                else if(selesai==3){
+                                    proteksiBelanja = false
+                                    Master = false
+                                    proteksiHrf = false
+                                }
+                            }
+                        }
+                    }
+                    else if(menuBelanja==2){
+                        while(proteksiHrf){
+                            var bola = prompt(nama + ' Membeli Bola dengan jumlah : ')
+                            if(isNaN(bola)){
+                                alert('Input anda SALAH')
+                            }
+                            else{
+                                var selesai = prompt('Total belanja anda : Rp. ' + bola*20000 + '\n'+'Terima Kasih Sudah Berbelanja \n Ket: 1.Belanja lagi/2.Menu Utama/3.Keluar')
+                                if(selesai==1){
+                                    proteksiMenu = false
+                                    proteksiHrf = false
+                                }
+                                else if(selesai==2){
+                                    proteksiBelanja = false
+                                    proteksiHrf = false
+                                }
+                                else if(selesai==3){
+                                    proteksiBelanja = false
+                                    Master = false
+                                    proteksiHrf = false
+                                }
+                            }
+                        }
+                    }
+                    else if(menuBelanja==3){
+                        while(proteksiHrf){
+                            var baju = prompt(nama + ' Membeli Baju dengan jumlah : ')
+                            if(isNaN(baju)){
+                                alert('Input anda SALAH')
+                            }
+                            else{
+                                var selesai = prompt('Total belanja anda : Rp. ' + baju*15000 + '\n'+'Terima Kasih Sudah Berbelanja\nKet: 1.Belanja lagi/2.Menu Utama/3.Keluar')
+                                if(selesai==1){
+                                    proteksiMenu = false
+                                    proteksiHrf = false
+                                }
+                                else if(selesai==2){
+                                    proteksiBelanja = false
+                                    proteksiHrf = false
+                                }
+                                else if(selesai==3){
+                                    proteksiBelanja = false
+                                    Master = false
+                                    proteksiHrf = false
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }
+            else if(mainMenu==2){
+                while(proteksiBelajar){
+                    var menuBelajar = prompt('MENU BELAJAR \n Pilih pelajaran : \n 1. Penjumlahan\n 2. Pengurangan\n 3. Perkalian\n 4. Pembagian')
+                    if(menuBelajar==1){
+                        var angka1 = prompt('PENJUMLAHAN\n Masukkan Angka Pertama ?')
+                        var angka2 = prompt('PENJUMLAHAN\n Masukkan Angka Kedua ?')
+                        var penjumlahan = ('Hasil Penjumlahan = ' +(parseInt(angka1)+parseInt(angka2)))
+                        var selesai = prompt(angka1 + ' + ' + angka2 + '\n' + penjumlahan + '\nKet: 1.Belajar lagi/2.Menu Utama/3.Keluar')
+                        if(selesai==1){
+                            proteksiMenu = false
+              //              proteksiHrf = false
+                        }
+                        else if(selesai==2){
+                            //proteksiBelanja = false
+                            proteksiBelajar = false
+                //            proteksiHrf = false
+                        }
+                        else if(selesai==3){
+                            proteksiBelajar = false
+                            Master = false
+                  //          proteksiHrf = false
+                        }
+                    }
+                    else if(menuBelajar==2){
+                        var angka1 = prompt('PENGURANGAN\n Masukkan Angka Pertama ?')
+                        var angka2 = prompt('PENGURANGAN\n Masukkan Angka Kedua ?')
+                        var pengurangan = ('Hasil Pengurangan = ' +(parseInt(angka1)-parseInt(angka2)))
+                        var selesai = prompt(angka1 + ' - ' + angka2 + '\n'+ pengurangan + '\nKet: 1.Belajar lagi/2.Menu Utama/3.Keluar')
+                        if(selesai==1){
+                            proteksiMenu = false
+              //              proteksiHrf = false
+                        }
+                        else if(selesai==2){
+                            //proteksiBelanja = false
+                            proteksiBelajar = false
+                //            proteksiHrf = false
+                        }
+                        else if(selesai==3){
+                            proteksiBelajar = false
+                            Master = false
+                  //          proteksiHrf = false
+                        }
+                    }
+                    else if(menuBelajar==3){
+                        var angka1 = prompt('PERKALIAN\n Masukkan Angka Pertama ?')
+                        var angka2 = prompt('PERKALIAN\n Masukkan Angka Kedua ?')
+                        var perkalian = ('Hasil Perkalian = ' +(parseInt(angka1)*parseInt(angka2)))
+                        var selesai = prompt(angka1 + ' * ' + angka2 + '\n'+ perkalian + '\nKet: 1.Belajar lagi/2.Menu Utama/3.Keluar')
+                        if(selesai==1){
+                            proteksiMenu = false
+              //              proteksiHrf = false
+                        }
+                        else if(selesai==2){
+                            //proteksiBelanja = false
+                            proteksiBelajar = false
+                //            proteksiHrf = false
+                        }
+                        else if(selesai==3){
+                            proteksiBelajar = false
+                            Master = false
+                  //          proteksiHrf = false
+                        }
+                    }
+                    else if(menuBelajar==4){
+                        var angka1 = prompt('PEMBAGIAN\n Masukkan Angka Pertama ?')
+                        var angka2 = prompt('PEMBAGIAN\n Masukkan Angka Kedua ?')
+                        var pembagian = ('Hasil Pembagian = ' +(parseInt(angka1)/parseInt(angka2)))
+                        var selesai = prompt(angka1 + ' / ' + angka2 + '\n'+ pembagian + '\nKet: 1.Belajar lagi/2.Menu Utama/3.Keluar')
+                        if(selesai==1){
+                            proteksiMenu = false
+              //              proteksiHrf = false
+                        }
+                        else if(selesai==2){
+                            //proteksiBelanja = false
+                            proteksiBelajar = false
+                //            proteksiHrf = false
+                        }
+                        else if(selesai==3){
+                            proteksiBelajar = false
+                            Master = false
+                  //          proteksiHrf = false
+                        }
+                    }
+                }            
+            }
+            }
+
+        }
+        else{
+            alert('Masukkan nama anda')
+        }
+    }
+    
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        table,
+        th,
+        td,
+        tr {
+            border: 2px solid blue;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h3>Daftar Siswa Purwadhika</h3>
+        <table style="size: 200px; width: 300px;">
+            <tr>
+                <td>
+                    <form id='inform' style="padding: 10px;">
+                        <input type="text" id="nama" placeholder="Masukkan nama"><br>
+                        <br><input type="number" id="usia" placeholder="Usia"><br>
+                        <h4>Gender <input type="radio" name="Gender" value="Pria" id="pria">Pria</input>
+                            <input type="radio" name="Gender" value="Wanita" id="wanita">Wanita</input></h4>
+                        <input type="text" id="pekerjaan" placeholder="Pekerjaan"><br>
+                        <br><input type="button" value="Submit" onclick="cetakData()"><br>
+                        <br><input type="button" value="Nama" onclick="">
+                        <input type="button" value="Umur" onclick="">
+                        <input type="button" value="Pekerjaan" onclick="">
+                        <input type="button" value="Gender" onclick="">
+                    </form>
+                </td>
+            </tr>
+        </table><br>
+        <table name="htabel" id='tHasil' style="width: 300px;">
+            <tr>
+                <th>Nama</th>
+                <th>Usia</th>
+                <th>Gender</th>
+                <th>Pekerjaan</th>
+            </tr>
+        </table>
+        <h3 id="hasil">
+
+        </h3>
+    </center>
+    <script>
+        function cetakData() {
+            //var a = document.getElementById('inform').elements
+            var  nama= document.getElementById('inform').elements[0].id
+            //console.log(a)
+            document.getElementById('hasil').innerHTML = nama
+            // document.getElementById('form').elements[0].value = ''
+        }    
+    </script>
+</body>
+
+</html>

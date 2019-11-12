@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title> -->
+    <title>Lead Project</title>
+    <style>
+        table,
+        th,
+        td,
+        tr {
+            border: 1px solid blue;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Welcome to <br>Lead Project</h3>
+    <!-- <img src="F:\Bussines\Lead.Ing\Clothing\Brand\Logo2.png" alt="Logo Lead" height="320px" width="460px">
+    <table>
+        <tr>
+            <th>Nama</th>
+            <th>Ttl</th>
+            <th>Sekolah</th>
+        </tr>
+        <tr>
+            <th>Abdi</th>
+            <th>Januari</th>
+            <th>Purwadhika</th>
+        </tr>
+        <tr>
+            <th>Mikhel</th>
+            <th>Februari</th>
+            <th>Purwadhika</th>
+        </tr>
+        <tr>
+            <th>Dhio</th>
+            <th>Maret</th>
+            <th>Purwadhika</th>
+        </tr>
+    </table>
+    <input type="text" name="Login" id="username">
+    <input type="password" name="Login" id="password">
+    <input type="number">
+    <input type="radio" name="Gender">Pria</input>
+    <input type="radio" name="Gender">Wanita</input>
+    <input type="button" value="Click Here"> -->
+    <!-- <table>
+        <tr>
+            <th>Rank</th>
+            <th>Club</th>
+            <th>Logo</th>
+            <th>Level</th>
+            <th>Button</th>
+        </tr>
+        <tr>
+            <td>1st</td>
+            <td>Manchester United</td>
+            <td><img src="https://c7.uihere.com/files/475/698/496/dream-league-soccer-manchester-united-f-c-old-trafford-2016-17-premier-league-2017-18-premier-league-manchester-united-logo-png.jpg" alt="Logo MU" height="75px" width="100px"></th>
+            <td>
+                <input type="radio" name="LevelMU" value="Junior">Junior</input>
+                <input type="radio" name="LevelMU" value="Pro">Profesional</input>
+            </td>
+            <th><input type="button" value="Edit"></th>
+        </tr>
+        <tr>
+            <td>2nd</td>
+            <td>Real Madrid</td>
+            <th><img src="https://upload.wikimedia.org/wikipedia/id/8/8b/Real_Madrid_Club_de_F%C3%BAtbol.png" alt="Logo RM" height="75px" width="65px"></th>
+            <td>
+                <input type="radio" name="LevelRM" value="Junior">Junior</input>
+                <input type="radio" name="LevelRM" value="Pro">Profesional</input>
+            </td>
+            <th><input type="button" value="Edit"></th>
+        </tr>
+        <tr>
+            <td>3nd</td>
+            <td>PSG</td>
+            <th><img src="https://upload.wikimedia.org/wikipedia/id/4/4b/Paris_Saint-Germain_F.C._Logo.jpg" alt="Logo MU" height="75px" width="75px"></th>
+            <td>
+                <input type="radio" name="LevelPSG" value="Junior">Junior</input>
+                <input type="radio" name="LevelPSG" value="Pro">Profesional</input>
+            </td>
+            <th><input type="button" value="Edit"></th>
+        </tr>
+    </table> -->
+    <form id='form'>
+        <input type="text" id="username" placeholder="Masukkan nama">
+        <input type="text" id="ttl">
+        <input type="text" id="sekolah">
+        <input type="button" value="Click Here" onclick="alertNama()">
+    </form>
+    <h3 id='hasil'>
+
+    </h3>
+    <script>
+
+        function alertNama() {
+            // var a = document.getElementById('username').value
+            // var a = document.getElementById('ttl').value
+            // var a = document.getElementById('sekolah').value
+            // alert(a)
+            var a = document.getElementById('form').elements[0].value
+            console.log(document.getElementById('form').elements[0].value)
+            document.getElementById('hasil').innerHTML = a
+            document.getElementById('form').elements[0].value = ''
+            
+        }    
+    </script>
+</body>
+
+</html>

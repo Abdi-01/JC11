@@ -1,0 +1,27 @@
+var hasil = ''
+for(a=0;a<=5;a++){
+    for(b=5;b>a;b--){
+        hasil+='x '
+    }
+    if(a!=4){
+        hasil+='\n'
+    }
+}
+console.log(hasil)
+
+// let hasilB = ''
+// for(a=0;a<=5;a++){
+//     for(b=0;b<a;b++){
+//         hasilB+='x '
+//     }
+//     if(a!=4){
+//         hasilB+='\n'
+//     }
+// }
+// console.log(hasilB)
+
+// var a = 0
+// function angka(b){
+//     b = 2-2
+// }
+// console.log(angka(a))
